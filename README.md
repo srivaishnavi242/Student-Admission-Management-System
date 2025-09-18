@@ -2,96 +2,120 @@
 
 Student Admission Management System is a Salesforce-based application built with Lightning Web Components to streamline the entire admission lifecycle. It enables institutions to manage student applications, review and approve candidates, track enrollment, and generate insightful reports, all within a single, integrated platform. This project was developed as a Salesforce Capstone Project to demonstrate real-world CRM implementation in the education domain.
 
+---
+
 ## 🚀 Features
 
-- **Student Application Form** – Online application with validation for personal, academic, and program details.
-- **Application Review & Approval** – Officers can review, filter, and evaluate applications.
-- **Admission Decision Workflow** – Accept, reject, or waitlist applicants with comments and automated notifications.
-- **Enrollment Management** – Track accepted students’ enrollment status, course selections, and fee payments.
-- **Automated Notifications** – Email/SMS alerts for submission, status changes, and enrollment confirmation.
-- **Reporting & Dashboards** – Key metrics like application counts, acceptance rates, and enrollment trends.
-- **Integrations** – Payment gateway for fees, document uploads, and Student Information System (SIS).
+- **Student Application Form**: Online application form capturing personal, academic, and program details with validation.
+- **Application Review & Approval**: Admission officers can review, filter, and evaluate submitted applications.
+- **Admission Decision Workflow**: Accept, reject, or waitlist applicants with decision comments and automated notifications.
+- **Enrollment Management**: Track enrolled students, assign courses, record fees, and monitor enrollment status.
+- **Automated Notifications**: Alerts for submission, decision updates, and enrollment confirmations.
+- **Reporting & Dashboards**: Admission trends, program performance, acceptance rates, and enrollment analytics.
+- **Integrations**: Document upload support and hooks for payment gateways or external SIS.
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Salesforce Platform** (Admin + Developer)
-- **Lightning Web Components (LWC)** – Custom UI components
-- **Apex** – Business logic, triggers, classes
-- **SOQL / SOSL** – Data retrieval and search
-- **Salesforce Flows** – Process automation (notifications, approvals)
-- **Reports & Dashboards** – Visual analytics
-- **External Integrations** – Payment, SIS, Document Management
+- **Salesforce Platform** – Admin + Developer setup
+- **Lightning Web Components (LWC)** – Custom UI components:
+  - `applicationDetails` – Displays student application info
+  - `decisionWorkflow` – Allows officers to make admission decisions
+  - `enrollmentManager` – Handles course enrollment for accepted students
+- **Apex** – Classes for business logic (e.g., `EnrollmentController`, `AdmissionDecisionPublisher`)
+- **SOQL / SOSL** – Data retrieval and searches
+- **Salesforce Flows** – Automations for notifications and approvals
+- **Reports & Dashboards** – Visual analytics for admissions
 
-## 📂 Repository Structure
+---
 
-```
-/docs         # Project documents, screenshots, user guides
-/src          # Salesforce metadata (Apex classes, LWC, Flows)
-README.md     # Project overview and documentation
-```
-
-## 🎯 Use Cases
+## 📑 Application Lifecycle
 
 ### Application Submission
-- Students fill and submit applications online
-- Data validation ensures accuracy before submission
+- Students submit applications online.
+- System validates personal details, program, and contact info.
 
 ### Review & Approval
-- Officers access submitted applications
-- Filter, sort, and check supporting documents
+- Officers access applications via LWC UI.
+- Can filter, sort, and view uploaded documents.
 
 ### Decision Workflow
-- Mark applications as Accepted / Rejected / Waitlisted
-- Automated notifications sent to applicants
+- Accept, Reject, or Waitlist applications.
+- Comments and automated notifications handled through Apex and Flows.
 
 ### Enrollment Tracking
-- Accepted students select courses and update fee status
-- Enrollment progress visible in dashboards
+- Accepted students assigned to courses.
+- Track enrollment status, start/end dates, and fee payments.
+- Dashboard shows enrollment trends per program.
 
 ### Reporting & Analytics
-- Dashboards for admission trends, program performance, and enrollment data
+- Admission performance by program.
+- Total submitted, accepted, rejected, and waitlisted applications.
+- Enrollment trends and student distribution.
+
+---
 
 ## 🔗 Integrations
 
-- **Payment Gateway** – Online fee payment tracking
-- **Document Upload** – Academic record and certificate submission
-- **Student Information System (SIS)** – Sync enrolled student records
+- **Document Upload**: Upload academic records, certificates, and supporting documents.
+- **Student Information System (SIS) (Optional)**: Sync enrolled student data.
+
+---
 
 ## 📊 Dashboards
 
-- **Applications Overview** – Total submitted, accepted, rejected, waitlisted
-- **Enrollment Trends** – Course/program enrollments over time
-- **Acceptance Rates** – Institution-wide and program-specific
-- **Performance Analytics** – Identify patterns to optimize admissions
+- **Applications Overview**: Submitted, accepted, rejected, waitlisted.
+- **Enrollment Trends**: Courses and program enrollments over time.
+- **Acceptance Rates**: Institution-wide and program-specific.
+- **Performance Analytics**: Patterns to optimize admissions.
+- **Academic Record Trends**: Analyzes the academic records like GPA.
+- **Total Fees Collected**: Analyzes the fees paid my each student and calculated total.
+
+---
 
 ## 🚦 Installation & Setup
 
-### Clone the Repository
+### 1. Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/Student-Admission-Management-System.git
+git clone https://github.com/srivaishnavi242/Student-Admission-Management-System.git
+cd Student-Admission-Management-System
 ```
 
-### Deploy to Salesforce
+### 2. Deploy to Salesforce
 
-- Use Salesforce CLI (`sfdx`) to deploy `/src` metadata to your Salesforce org
-- Assign profiles and permission sets to users
+```bash
+sfdx force:source:deploy -p force-app/main/default -u <your-org-alias>
+```
+> **Note:** Ensure profiles/permission sets are assigned for access to custom objects and LWCs.
 
-### Configure Integrations
+### 3. Manual Setup
 
-- Setup Payment Gateway mock credentials in Custom Settings
-- Configure SIS/document storage if required
+- Create sample Student Application records.
+- Create Enrolled Student records linked to applications.
+- Add Course records (at minimum, Name field).
+- Verify LWCs on record pages:
+  - `applicationDetails`
+  - `decisionWorkflow`
+  - `enrollmentManager`
 
-### Demo Data
+### 4. Test in Experience Cloud / Mobile
 
-- Import sample data (students, applications, programs) for testing
+- Lightning Pages render automatically in Salesforce Mobile App.
+- LWCs can also be embedded in Experience Cloud sites.
+
+---
 
 ## 🤝 Contributing
 
-Contributions, suggestions, and bug reports are welcome!
+Contributions, bug reports, and suggestions are welcome!
 
-- Fork the repo and create a pull request
-- Open issues for bugs or new feature ideas
+- Fork the repository
+- Open issues for bug reports or feature requests
+- Create pull requests for proposed changes
+
+---
 
 ## 👩‍💻 Author
 
