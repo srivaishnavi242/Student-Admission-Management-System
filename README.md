@@ -32,27 +32,71 @@ Student Admission Management System is a Salesforce-based application built with
 
 ## 📑 Application Lifecycle
 
-### Application Submission
-- Students submit applications online.
-- System validates personal details, program, and contact info.
+### 1. Application Submission
 
-### Review & Approval
-- Officers access applications via LWC UI.
-- Can filter, sort, and view uploaded documents.
+- **Student Entry**: Students submit applications online via a custom LWC form.
+- **Captured Data**:
+  - Personal details: Name, Date of Birth, Contact Info
+  - Academic records: GPA, Previous Institutions
+  - Program/Course preferences
+- **Validation**:
+  - System checks required fields and data accuracy.
+  - Optional attachments (transcripts, recommendation letters) uploaded via Salesforce Files.
 
-### Decision Workflow
-- Accept, Reject, or Waitlist applications.
-- Comments and automated notifications handled through Apex and Flows.
+### 2. Application Review & Approval
 
-### Enrollment Tracking
-- Accepted students assigned to courses.
-- Track enrollment status, start/end dates, and fee payments.
-- Dashboard shows enrollment trends per program.
+- **Officer Dashboard**: Admission officers access applications through a user-friendly LWC interface.
+- **Filtering & Sorting**: Applications can be filtered (by program, status, submission date) and sorted for efficient management.
+- **Comprehensive View**: Officers see all student details, supporting documents, and academic records in one consolidated view.
+- **Internal Notes**: Officers can add evaluation notes/comments to applications.
+  
+### 3. Admission Decision Workflow
 
-### Reporting & Analytics
-- Admission performance by program.
-- Total submitted, accepted, rejected, and waitlisted applications.
-- Enrollment trends and student distribution.
+- **Decision Options**: Officers can Accept, Reject, or Waitlist applications.
+- **Business Logic**:
+  - Students cannot be accepted without a program/course assignment.
+  - Decision triggers Platform Events or Flows:
+    - **Accepted**: Moves student to enrollment stage.
+    - **Rejected**: Closes the application.
+    - **Waitlisted**: Keeps student in pending status until a seat is available.
+- **Decision Comments**: Officers add comments which are stored in the application record.
+  
+### 4. Program & Course Assignment Algorithm
+
+- **Assignment**: Accepted students are assigned to their selected program and available courses.
+- **Enrollment Record Creation**:
+  - Uses a junction object (`Enrollment_Course__c`) to manage many-to-many relationships between students and courses.
+  - Tracks number of students per course and prevents duplicate enrollments.
+- **Validation Rules**:
+  - GPA eligibility per program.
+  - Prevent enrolling a student in a course if already registered.
+
+### 5. Enrollment Tracking
+
+- **Enrollment Management**: Accepted students are enrolled in assigned courses.
+- **Enrollment Records**: Track status, start/end dates, and fee payments.
+- **Dashboards**:
+  - Enrollment trends per program.
+  - Total students enrolled per course.
+  - Remaining seat availability per course.
+
+### 6. Reporting & Analytics
+
+- **Built-in Reports & Dashboards**:
+  - Application metrics: Total submitted, accepted, rejected, waitlisted.
+  - Acceptance rates by program; GPA distributions.
+  - Year-wise academic trends.
+- **Administrative Insights**:
+  - Data-driven decisions for course planning and future enrollment forecasting.
+
+### 7. Email Notifications & Integrations
+
+- **Automated Emails**:
+  - Acceptance: Details and next steps.
+  - Rejection: Feedback or encouragement for future applications.
+  - Waitlist: Pending status and guidance.
+- **External Integrations**:
+  - Synchronization with student portals, payment gateways, or document management via Platform Events/APIs.
 
 ---
 
