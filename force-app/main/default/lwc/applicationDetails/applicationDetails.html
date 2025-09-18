@@ -1,0 +1,19 @@
+<template>
+  <lightning-card title="Application Details">
+    <div class="slds-p-around_small">
+      <lightning-record-view-form record-id={recordId} object-api-name="Student_Application__c">
+        <lightning-output-field field-name="Applicant_First_Name__c"></lightning-output-field>
+        <lightning-output-field field-name="Applicant_Last_Name__c"></lightning-output-field>
+        <lightning-output-field field-name="Email__c"></lightning-output-field>
+        <lightning-output-field field-name="Program__c"></lightning-output-field>
+        <lightning-output-field field-name="Status__c"></lightning-output-field>
+        <lightning-output-field field-name="Submitted_Date__c"></lightning-output-field>
+        <lightning-output-field field-name="Decision_Comments__c"></lightning-output-field>
+      </lightning-record-view-form>
+
+      <div class="slds-m-top_small">
+        <lightning-file-upload record-id={recordId} label="Upload Documents"></lightning-file-upload>
+      </div>
+    </div>
+  </lightning-card>
+</template>

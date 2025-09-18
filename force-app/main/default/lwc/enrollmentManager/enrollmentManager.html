@@ -1,0 +1,26 @@
+<template>
+  <lightning-card title="Enroll Student">
+    <div class="slds-p-around_small">
+      <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+      </template>
+
+      <div class="slds-m-bottom_small">
+        <p class="slds-text-body_small">Select courses to enroll the student in:</p>
+        <lightning-dual-listbox
+          name="courses"
+          label="Available Courses"
+          source-label="Available"
+          selected-label="Selected"
+          options={options}
+          value={selectedValues}
+          onchange={handleChange}>
+        </lightning-dual-listbox>
+      </div>
+
+      <div>
+        <lightning-button variant="brand" label="Enroll" onclick={handleEnroll}></lightning-button>
+      </div>
+    </div>
+  </lightning-card>
+</template>
