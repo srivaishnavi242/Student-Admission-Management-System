@@ -15,7 +15,6 @@ module.exports = defineConfig([
         ]
     },
 
-    // LWC configuration
     {
         files: ['**/lwc/**/*.js'],
         extends: [lwcConfig]
