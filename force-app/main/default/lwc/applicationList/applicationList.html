@@ -1,0 +1,35 @@
+<template>
+  <lightning-card title="Applications">
+    <div class="slds-p-around_small">
+      <div class="slds-grid slds-wrap slds-m-bottom_small">
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-input type="search" name="search" label="Search" onchange={onSearch}></lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+          <lightning-combobox label="Status" options={statusOptions} value={statusFilter} onchange={onStatusChange}></lightning-combobox>
+        </div>
+      </div>
+
+      <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+      </template>
+
+      <lightning-datatable
+        key-field="Id"
+        data={data}
+        columns={columns}
+        onrowaction={handleRowAction}>
+      </lightning-datatable>
+
+      <div class="slds-m-top_small slds-grid slds-grid_align-spread">
+        <div>
+          <lightning-button label="Previous" onclick={prevPage} disabled={isFirstPage}></lightning-button>
+        </div>
+        <div class="slds-text-body_small slds-p-horizontal_small">Page {pageNumber} of {totalPages}</div>
+        <div>
+          <lightning-button label="Next" onclick={nextPage} disabled={isLastPage}></lightning-button>
+        </div>
+      </div>
+    </div>
+  </lightning-card>
+</template>
