@@ -1,9 +1,10 @@
+// Prettier configuration file
 {
   "trailingComma": "none",
   "plugins": [
     "prettier-plugin-apex",
     "@prettier/plugin-xml"
-  ],
+  ], //rukles for lwc and salesforce files
   "overrides": [
     {
       "files": "**/lwc/**/*.html",
