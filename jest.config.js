@@ -4,3 +4,5 @@ module.exports = {
     ...jestConfig,
     modulePathIgnorePatterns: ['<rootDir>/.localdevserver']
 };
+
+// Jest configuration file
