@@ -3,7 +3,7 @@
 Student Admission Management System is a Salesforce-based application built with Lightning Web Components to streamline the entire admission lifecycle. It enables institutions to manage student applications, review and approve candidates, track enrollment, and generate insightful reports, all within a single, integrated platform.
 
 
-This project was developed as a Salesforce Capstone Project to demonstrate real-world CRM implementation in the education domain.
+This capstone project was developed as a part of my Salesforce Developer Virtual Internship by SmartBridge in Collaboration with Salesforce to demonstrate real-world CRM implementation in the education domain.
 
 ---
 
