@@ -146,6 +146,8 @@ sfdx force:source:deploy -p force-app/main/default -u <your-org-alias>
   - `applicationDetails`
   - `decisionWorkflow`
   - `enrollmentManager`
+  - `studentApplicationForm`
+  - `applicationList`
 
 ### 4. Test in Experience Cloud / Mobile
 
